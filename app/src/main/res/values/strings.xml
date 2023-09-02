@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ussd App</string>
+    <string name="btn1">Redeem Air-time: %d</string>
+    <string name="btn2">Send Call-Me: %d </string>
+</resources>
