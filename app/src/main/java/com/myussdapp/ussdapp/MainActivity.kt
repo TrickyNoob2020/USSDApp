@@ -4,83 +4,100 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Button
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.myussdapp.ussdapp.ui.theme.UssdAppTheme
-import androidx.compose.runtime.remember as remember1
-
-
-
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             UssdAppTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    HeaderWithButtons()
+                // Set up the navigation graph with NavHost
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = "mainFragment",
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    composable("mainFragment") {
+                        RunEverythingInMain(navController)
+                    }
+                    composable("MTCRoute") {
+                        // Content for MTCRoute
+                    }
+                    composable("TNRoute") {
+                        // Content for TNRoute
+                    }
                 }
+
             }
         }
     }
-
 }
 
+@Composable
+fun RunEverythingInMain(navController: NavController) {
+    HeaderWithButtons(navController = navController)
+}
 
 @Composable
-fun HeaderWithButtons() {
-    @Composable
-    fun HeaderWithButtons() {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(20.dp),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Spacer(modifier = Modifier.height(50.dp)) // Move Spacer down
-
-            Text(text = stringResource(text = stringResource(id = R.string.app_name)))
-            Spacer(modifier = Modifier.height(20.dp)) // Reduce spacing between header and buttons
-
-            Buttons() // Buttons are now placed closer to the center
-        }
-    }
-
-    @Composable
-fun Buttons() {
-    Row(
-        modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceEvenly // Add spacing between buttons
+fun HeaderWithButtons(navController: NavController) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(vertical = 32.dp, horizontal = 20.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Button 1 - Airtime Recharge
-        Button(onClick = { clickCount.value++ }) {
-            Text(text = stringResource(id = R.string.btn1, clickCount.value))
+        Spacer(modifier = Modifier.height(32.dp))
+
+        Text(text = stringResource(id = R.string.app_name))
+
+        Spacer(modifier = Modifier.height(46.dp)) // Add spacing between TextField and buttons
+        Buttons(navController)
+    }
+}
+
+@Composable
+fun Buttons(navController: NavController) {
+    // I have two buttons "MTC" and "TN",
+    // which displayed underneath each-other,
+    // each button should be able to open another kotlin file
+    Column(
+        modifier = Modifier
+            .padding(12.dp, 1.dp)
+            .fillMaxWidth()
+    ) {
+        Button(
+            onClick = {  navController.navigate("MTCRoute") }
+        ) {
+            Text(text = "MTC")
         }
-        // Button 2 - Call Me Request
-        Button(onClick = {USSDHandler.handleCallMeRequest("")}) {
-            Text(text = stringResource(id = R.string.btn2, clickCount.value))
+        Spacer(modifier = Modifier.height(32.dp))
+        Button(
+            onClick = { /*TODO*/ navController.navigate("TNRoute") }
+        ) {
+            Text(text = "TN")
         }
     }
 }
 
-@Preview( showSystemUi = true, showBackground = true)
+@Preview
 @Composable
-fun DefaultPreview() {
+private fun Preview() {
     UssdAppTheme {
-       HeaderWithButtons()
+        HeaderWithButtons(navController = rememberNavController())
     }
 }

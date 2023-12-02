@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/ussd_dialog.xml -->
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <EditText
+            android:id="@+id/editTextUSSD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ussd_code" android:autofillHints=""/>
+
+    <EditText
+            android:id="@+id/editTextVoucherPin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/voucher_pin" android:autofillHints=""/>
+</LinearLayout>

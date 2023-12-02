@@ -1,0 +1,28 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/mainFragment">
+
+    <fragment
+            android:id="@+id/mainFragment"
+            android:name="com.myussdapp.ussdapp.MainActivity"
+            android:label="@string/main_fragment_label">
+        <!-- Define actions or other destinations from this fragment -->
+        <action
+                android:id="@+id/action_mainFragment_to_mtcRoute"
+                app:destination="@+id/MTCRoute" />
+        <action
+                android:id="@+id/action_mainFragment_to_tnRoute"
+                app:destination="@id/TNRoute"/>
+    </fragment>
+
+    <activity
+            android:id="@+id/MTCRoute"
+            android:name="com.myussdapp.ussdapp.MTCActivity" android:label="@string/mtc_activity_label">
+    </activity>
+
+    <activity
+            android:id="@+id/TNRoute"
+            android:name="com.myussdapp.ussdapp.TNActivity" android:label="@string/tn_activity_label">
+    </activity>
+</navigation>

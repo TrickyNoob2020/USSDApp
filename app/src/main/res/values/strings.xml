@@ -1,5 +1,59 @@
 <resources>
+    <string name="main_fragment_label">Main Fragment</string>
+    <string name="mtc_activity_label">MTC Activity</string>
+    <string name="tn_activity_label">TN Activity</string>
+
+    <!-- MainActivity's string values -->
     <string name="app_name">Ussd App</string>
-    <string name="btn1">Redeem Air-time: %d</string>
-    <string name="btn2">Send Call-Me: %d </string>
+
+    <!-- MTC Values -->
+                            <!-- Normal Services -->
+    <string name="small_label">Normal Services</string>
+    <string name="mtc_btn1">Redeem Air-time</string>
+    <string name="mtc_btn2">Send Call-Me </string>
+    <string name="mtc_btn3">Send Airtime</string>
+    <string name="mtc_btn4">Check Balance</string>
+    <string name="mtc_btn5">Access DSTV</string>
+                            <!-- Aweh Products -->
+    <string name="small_label1">Aweh Products</string>
+    <string name="mtc_btn6">Oka Aweh</string>
+    <string name="mtc_btn7">Aweh Go</string>
+    <string name="mtc_btn8">Aweh Prime</string>
+    <string name="mtc_btn9">Aweh Gig</string>
+    <string name="mtc_btn10">Super Aweh</string>
+    <string name="mtc_btn11">Aweh Ultra 30</string>
+    <string name="mtc_btn12">Aweh YoData 30</string>
+    <string name="mtc_btn13">Aweh YoData L</string>
+    <string name="mtc_btn14">Aweh YoData M</string>
+    <string name="mtc_btn15">Aweh YoData S</string>
+    <string name="mtc_btn16">Aweh YoVoice 30</string>
+    <string name="mtc_btn17">Aweh YoVoice L</string>
+    <string name="mtc_btn18">Aweh YoVoice M</string>
+    <string name="mtc_btn19">Aweh YoVoice S </string>
+
+    <!-- TELECOM MOBILE values -->
+                                <!-- Normal Services -->
+    <string name="tn_btn1">Recharge</string>
+    <string name="tn_btn2">Airtime Transfer</string>
+    <string name="tn_btn3">Check Balance</string>
+    <string name="tn_btn4">FNB Access</string>
+    <string name="tn_btn5">Dstv Access</string>
+                                <!-- Jiva Products -->
+    <string name="tn_btn6">Jiva Lite</string>
+    <string name="tn_btn7">Jiva</string>
+    <string name="tn_btn8">Jiva Plus</string>
+    <string name="tn_btn9">Jiva Surf</string>
+    <string name="tn_btn10">Jiva Supreme</string>
+    <string name="tn_btn11">Jiva Supreme Boost</string>
+    <string name="tn_btn12">Jiva 14 Day Explore</string>
+    <string name="tn_btn13">30 Day Jiva Streaming</string>
+    <string name="tn_btn14">31 Day Jiva</string>
+    <string name="tn_btn15">Weekend Jiva</string>
+    <string name="ussd_code">USSD Code</string>
+    <string name="voucher_pin">Voucher Pin</string>
+    <string name="recipient_s_mobile_number">Recipient\'s Mobile Number</string>
+    <string name="transfer_amount">Transfer Amount</string>
+    <string name="enter_data_amount_mb">Enter Data Amount (MB)</string>
+    <string name="recipient_number">Recipient Number</string>
+    <string name="enter_amount">Enter Amount</string>
 </resources>
